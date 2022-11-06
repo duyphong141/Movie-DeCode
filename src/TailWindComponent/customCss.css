@@ -1,0 +1,12 @@
+.text-color-red{
+    color: red;
+}
+
+/* gom class tailwin vào 1 class tự định nghĩa  */
+.content{
+    @apply text-sm text-white ml-5 mt-5 hover:text-yellow-500 duration-500;
+}
+
+.animation-scale{
+    @apply transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-red-500 duration-300
+}
