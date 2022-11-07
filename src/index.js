@@ -6,15 +6,10 @@ import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reduxThunk from "redux-thunk";
-import rootReducer from "./redux/reducers/index";
-const store = createStore(rootReducer, applyMiddleware(reduxThunk));
+import rootReducer from "./redux/reducers/configStore";
+import { store } from "./redux/reducers/configStore";
+// const store = createStore(rootReducer, applyMiddleware(reduxThunk));
 
-// ReactDOM.render(
-//   <Provider store={store}>
-//     <App />
-//   </Provider>,
-//   document.getElementById("root")
-// );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

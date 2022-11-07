@@ -1,12 +1,27 @@
 import axios from "axios";
-import { domain, groupID } from "../config/setting";
+import { domain, DOMAIN_MOVIE, groupID, TOKEN } from "../config/setting";
 export class QuanLyPhimServices {
+
+  layDanhSachBanner = () => {
+    axios({
+      method: 'get',
+      url: `${DOMAIN_MOVIE}/QuanLyPhim/LayDanhSachBanner`,
+      headers: {
+        "TokenCybersoft": TOKEN
+      }
+    });
+  }
+
   layDanhSachPhim = () => {
     return axios({
-      url: `${domain}/quanLyPhim/laydanhsachphim?manhom=${groupID}`,
-      method: "GET",
+      method: 'get',
+      url: `${DOMAIN_MOVIE}/QuanLyPhim/LayDanhSachPhim?maNhom=${groupID}`,
+      headers: {
+        "TokenCybersoft": TOKEN
+      }
     });
-  };
+  }
+
   layThongTinPhim = (maPhim) => {
     return axios({
       url: `${domain}/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`,
@@ -15,15 +30,21 @@ export class QuanLyPhimServices {
   };
   layHeThongRap = () => {
     return axios({
-      url: `${domain}/QuanLyRap/LayThongTinHeThongRap`,
+      url: `${DOMAIN_MOVIE}/QuanLyRap/LayThongTinHeThongRap`,
       method: "GET",
+      headers: {
+        "TokenCybersoft": TOKEN
+      }
     });
   };
 
   layCumRapTheoHeThong = () => {
     return axios({
-      url: `${domain}/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${groupID}`,
+      url: `${DOMAIN_MOVIE}/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${groupID}`,
       method: "GET",
+      headers: {
+        "TokenCybersoft": TOKEN
+      }
     });
   };
 

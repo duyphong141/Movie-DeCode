@@ -9,24 +9,25 @@ export default function ShowTimeHome() {
     qLyPhimService
       .layHeThongRap()
       .then((result) => {
-        setRap(result.data);
+        setRap(result.data.content);
       })
       .catch((err) => {
         console.log(err.response.data);
       });
   }, []);
-
+  console.log(rap)
   let [cumRap, setCumRap] = useState([]);
   useEffect(() => {
     qLyPhimService
       .layCumRapTheoHeThong()
       .then((result) => {
-        setCumRap(result.data);
+        setCumRap(result.data.content);
       })
       .catch((err) => {
         console.log(err.response.data);
       });
   }, []);
+  console.log(cumRap)
   return (
     <section id="schedule" className="schedule container mx-auto">
       <div className="schedule__content">

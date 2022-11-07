@@ -11,7 +11,7 @@ export default function AllMovie() {
     qLyPhimService
       .layDanhSachPhim()
       .then((result) => {
-        setDanhSachPhim(result.data);
+        setDanhSachPhim(result.data.content);
         setLoading(false);
       })
       .catch((err) => {

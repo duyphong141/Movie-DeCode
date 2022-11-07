@@ -6,6 +6,8 @@ import { userLogin, token } from "../../config/setting";
 import { qlyNguoiDung } from "../../services/QuanLyNguoiDungServices";
 import { dangNhapAction } from "../../redux/actions/QuanLyNguoiDungActions";
 import swal from "sweetalert";
+
+
 const Login = (props) => {
   let { navigator } = props;
   const dispatch = useDispatch();
@@ -19,6 +21,7 @@ const Login = (props) => {
       matKhau: "",
     },
   });
+
   const handleChangeInput = (event) => {
     var { value, name } = event.target;
     let newValues = { ...state.values, [name]: value };
@@ -33,27 +36,28 @@ const Login = (props) => {
     event.preventDefault();
     qlyNguoiDung
       .dangNhap(state.values)
-      .then((res) => {
-        localStorage.setItem(userLogin, JSON.stringify(res.data));
-        localStorage.setItem(token, res.data.accessToken);
-        dispatch(dangNhapAction(res.data.taiKhoan));
+      .then((response) => {
+        localStorage.setItem(userLogin, JSON.stringify(response.data.content));
+        localStorage.setItem(token, response.data.content.accessToken);
+        dispatch(dangNhapAction(response.data.content.taiKhoan));
         swal({
           title: "Đăng nhập thành công",
-          text: "Xin chào " + res.data.taiKhoan,
+          text: "Xin chào " + response.data.content.taiKhoan,
           icon: "success",
           button: "OK",
         });
-        navigator.history.push("/home");
+        navigator.history.push("/");
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log(err.response.data.content);
         swal({
-          title: err.response.data,
+          title: err.response.data.content,
           icon: "error",
           button: "OK",
         });
       });
   };
+
   return (
     <section className="backgroundBodyUser">
       <div className="container-fluid">

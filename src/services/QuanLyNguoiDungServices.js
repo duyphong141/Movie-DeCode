@@ -1,20 +1,28 @@
 import axios from "axios";
-import { domain, token } from "../config/setting";
+import { domain, DOMAIN_MOVIE, TOKEN, token } from "../config/setting";
 export class QuanLyNguoiDung {
   dangNhap = (userLogin) => {
     return axios({
-      url: `${domain}/QuanLyNguoiDung/DangNhap`,
-      method: "POST",
+      method: 'post',
+      url: `${DOMAIN_MOVIE}/QuanLyNguoiDung/DangNhap`,
       data: userLogin,
+      headers: {
+        "TokenCybersoft": TOKEN
+      }
     });
   };
+
   dangKy = (thongTin) => {
     return axios({
-      url: `${domain}/QuanLyNguoiDung/DangKy`,
+      url: `${DOMAIN_MOVIE}/QuanLyNguoiDung/DangKy`,
       method: "POST",
       data: thongTin,
+      headers: {
+        "TokenCybersoft": TOKEN
+      }
     });
   };
+  
   layThongTinTaiKhoan = (taiKhoan) => {
     return axios({
       url: `${domain}/QuanLyNguoiDung/ThongTinTaiKhoan`,
