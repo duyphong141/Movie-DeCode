@@ -57,7 +57,7 @@ export default function CinemaSystem(props) {
     qLyPhimService
       .layHeThongRap()
       .then((result) => {
-        setHeThongRap(result.data.content);
+        setHeThongRap(result.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -68,8 +68,8 @@ export default function CinemaSystem(props) {
   useEffect(() => {
     qLyPhimService
       .layCumRapTheoHeThong()
-      .then((result) => {
-        setCumRap(result.data.content);
+      .then((res) => {
+        setCumRap(res.data);
         setLoading(false);
       })
       .catch((err) => {

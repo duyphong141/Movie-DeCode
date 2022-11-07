@@ -12,7 +12,7 @@ const initialState = {
   rating: "",
 };
 
-export const QuanLyNguoiDungReducer = (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case DANG_NHAP: {
       state.taiKhoan = action.taiKhoan;

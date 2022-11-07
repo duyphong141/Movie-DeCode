@@ -18,7 +18,7 @@ export default function Home() {
       .then((result) => {
         if (result) {
           setTimeout(() => {
-            setDanhSachPhim(result.data.content);
+            setDanhSachPhim(result.data);
             $loading(false);
           }, 1500);
         }
@@ -27,7 +27,6 @@ export default function Home() {
         console.log(err.response.data);
       });
   }, []);
-  // console.log(danhSachPhim)
   return (
     <Fragment>
       {loading ? (

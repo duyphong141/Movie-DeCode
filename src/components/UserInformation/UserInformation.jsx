@@ -11,9 +11,8 @@ import InfoTicketBooked from "./InfoTicketBooked/InfoTicketBooked";
 import EditInformation from "./EditInformation/EditInformation";
 import { qlyNguoiDung } from "../../services/QuanLyNguoiDungServices";
 import { userLogin } from "../../config/setting";
-
 export default function Information() {
-  const info = JSON.parse(localStorage.getItem(userLogin));
+  const info = JSON.parse(localStorage.getItem("userLogin"));
   let [thongTin, setThongTin] = useState([]);
   useEffect(() => {
     qlyNguoiDung
@@ -36,7 +35,7 @@ export default function Information() {
     }
   };
 
-  if (!localStorage.getItem(userLogin)) {
+  if (!localStorage.getItem("userLogin")) {
     return <Redirect to="/home" />;
   }
 

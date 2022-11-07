@@ -54,14 +54,14 @@ export default class AppMobile extends Component {
                       <div className="item">
                         <img
                           className="img-fluid"
-                          src="https://s3img.vcdn.vn/123phim/2020/05/vi-anh-deo-tin-15906776637571.png"
+                          src="https://tix.vn/app/assets/img/icons/slide/slide4.jpg"
                           alt="hinhanh"
                         />
                       </div>
                       <div className="item">
                         <img
                           className="img-fluid"
-                          src="https://s3img.vcdn.vn/123phim/2020/05/vi-anh-deo-tin-15906776637571.png"
+                          src="https://tix.vn/app/assets/img/icons/slide/slide5.jpg"
                           alt="hinhanh"
                         />
                       </div>
