@@ -69,7 +69,7 @@ export default function UploadImageMovieModal(props) {
       })
       .catch((err) => {
         swal({
-          title: err.response.data,
+          title: err.response.data.content,
           icon: "warning",
           button: "OK",
         });

@@ -1,34 +1,47 @@
 import axios from "axios";
-import { domain, token } from "../config/setting";
+import { DOMAIN_MOVIE, token, TOKEN_CYBER } from "../config/setting";
 export class QuanLyNguoiDung {
+
   dangNhap = (userLogin) => {
     return axios({
-      url: `${domain}/QuanLyNguoiDung/DangNhap`,
+      url: `${DOMAIN_MOVIE}/QuanLyNguoiDung/DangNhap`,
       method: "POST",
       data: userLogin,
+      headers: {
+        "TokenCybersoft": TOKEN_CYBER
+      }
     });
   };
   dangKy = (thongTin) => {
     return axios({
-      url: `${domain}/QuanLyNguoiDung/DangKy`,
+      url: `${DOMAIN_MOVIE}/QuanLyNguoiDung/DangKy`,
       method: "POST",
       data: thongTin,
+      headers: {
+        "TokenCybersoft": TOKEN_CYBER
+      }
     });
   };
+
   layThongTinTaiKhoan = (taiKhoan) => {
     return axios({
-      url: `${domain}/QuanLyNguoiDung/ThongTinTaiKhoan`,
+      url: `${DOMAIN_MOVIE}/QuanLyNguoiDung/ThongTinTaiKhoan`,
       method: "POST",
       data: taiKhoan,
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem(token),
+        "TokenCybersoft": TOKEN_CYBER
+      }
     });
   };
   datVe = (thongTinDatVe) => {
     return axios({
-      url: `${domain}/quanlydatve/datve`,
+      url: `${DOMAIN_MOVIE}/quanlydatve/datve`,
       method: "POST",
       data: thongTinDatVe,
       headers: {
         Authorization: "Bearer " + localStorage.getItem(token),
+        "TokenCybersoft": TOKEN_CYBER
       },
     });
   };
@@ -49,9 +62,13 @@ export class QuanLyNguoiDung {
   };
   thongTinTaiKhoan = (taiKhoan) => {
     return axios({
-      url: `${domain}/QuanLyNguoiDung/ThongTinTaiKhoan`,
+      url: `${DOMAIN_MOVIE}/QuanLyNguoiDung/ThongTinTaiKhoan`,
       method: "POST",
       data: taiKhoan,
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem(token),
+        "TokenCybersoft": TOKEN_CYBER
+      }
     });
   };
 }

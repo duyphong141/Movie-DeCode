@@ -34,7 +34,8 @@ header {
         flex-grow: 4;
       }
       img {
-        width: 45px;
+        margin-left: 40px;
+        width: 145px;
         height: 45px;
         border-radius: 5px;
         @include responsive_mobile--stiny {

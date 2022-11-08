@@ -5,6 +5,7 @@ import { userLogin } from "../../../config/setting";
 import { qlyNguoiDung } from "../../../services/QuanLyNguoiDungServices";
 import { Redirect } from "react-router-dom";
 import CreditModal from "../CreditModal/CreditModal";
+
 export default function Checkout(props) {
   let { thongTinPhongVe, danhSachGheDangDat, param } = props;
   const renderThongTinGheDangDat = () => {
@@ -37,12 +38,12 @@ export default function Checkout(props) {
     let thongTinDatVe = {
       maLichChieu: param.match.params.maLichChieu,
       danhSachVe: danhSachGheDangDat,
-      taiKhoanNguoiDung: JSON.parse(localStorage.getItem("userLogin")).taiKhoan,
+      taiKhoanNguoiDung: JSON.parse(localStorage.getItem(userLogin)).taiKhoan,
     };
     qlyNguoiDung
       .datVe(thongTinDatVe)
-      .then((res) => {
-        console.log(res.data);
+      .then((result) => {
+        console.log(result.data.content);
         swal({
           title: "Bạn chắc chứ?",
           icon: "warning",

@@ -10,7 +10,7 @@ export default function CreateShowTimeForm(props) {
     qLyPhimService
       .layDanhSachPhim()
       .then((result) => {
-        setDanhSachPhim(result.data);
+        setDanhSachPhim(result.data.content);
       })
       .catch((err) => {
         console.log(err.response.data);
@@ -22,7 +22,7 @@ export default function CreateShowTimeForm(props) {
     qLyPhimService
       .layHeThongRap()
       .then((result) => {
-        setHeThongRap(result.data);
+        setHeThongRap(result.data.content);
       })
       .catch((err) => {
         console.log(err.response.data);
@@ -78,7 +78,7 @@ export default function CreateShowTimeForm(props) {
     qLyPhimService
       .layThongTinCumRapTheoHeThong(maHeThongRap)
       .then((result) => {
-        setCumRap(result.data);
+        setCumRap(result.data.content);
       })
       .catch((err) => {
         // console.log(err.response.data);
@@ -160,7 +160,7 @@ export default function CreateShowTimeForm(props) {
       })
       .catch((err) => {
         swal({
-          title: err.response.data,
+          title: err.response.data.content,
           // text: "Điền lại thông tin!",
           icon: "warning",
           button: "OK",

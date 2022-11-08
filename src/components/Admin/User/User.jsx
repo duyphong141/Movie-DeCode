@@ -10,8 +10,8 @@ export default function User() {
   useEffect(() => {
     qLyAdminService
       .layDanhSachNguoiDung()
-      .then((res) => {
-        setListNguoiDung(res.data);
+      .then((result) => {
+        setListNguoiDung(result.data.content);
       })
       .catch((err) => {
         console.log(err.response.data);
@@ -72,8 +72,8 @@ export default function User() {
         });
         qLyAdminService
           .layDanhSachNguoiDung()
-          .then((res) => {
-            setListNguoiDung(res.data);
+          .then((result) => {
+            setListNguoiDung(result.data.content);
           })
           .catch((err) => {
             console.log(err.response.data);
@@ -81,7 +81,7 @@ export default function User() {
       })
       .catch((err) => {
         swal({
-          title: err.response.data,
+          title: err.response.data.content,
           text: "Xóa không thành công!",
           icon: "warning",
           button: "OK",

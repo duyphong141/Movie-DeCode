@@ -6,6 +6,7 @@ import { userLogin, token } from "../../config/setting";
 import { qlyNguoiDung } from "../../services/QuanLyNguoiDungServices";
 import { dangNhapAction } from "../../redux/actions/QuanLyNguoiDungActions";
 import swal from "sweetalert";
+
 const Login = (props) => {
   let { navigator } = props;
   const dispatch = useDispatch();
@@ -34,12 +35,12 @@ const Login = (props) => {
     qlyNguoiDung
       .dangNhap(state.values)
       .then((res) => {
-        localStorage.setItem(userLogin, JSON.stringify(res.data));
-        localStorage.setItem(token, res.data.accessToken);
-        dispatch(dangNhapAction(res.data.taiKhoan));
+        localStorage.setItem(userLogin, JSON.stringify(res.data.content));
+        localStorage.setItem(token, res.data.content.accessToken);
+        dispatch(dangNhapAction(res.data.content.taiKhoan));
         swal({
           title: "Đăng nhập thành công",
-          text: "Xin chào " + res.data.taiKhoan,
+          text: "Xin chào " + res.data.content.taiKhoan,
           icon: "success",
           button: "OK",
         });
@@ -48,7 +49,7 @@ const Login = (props) => {
       .catch((err) => {
         console.log(err.response.data);
         swal({
-          title: err.response.data,
+          title: err.response.data.content,
           icon: "error",
           button: "OK",
         });

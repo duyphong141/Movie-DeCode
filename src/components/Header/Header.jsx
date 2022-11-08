@@ -134,10 +134,10 @@ export default function Header(props) {
         <div className="navbar-brand">
           <NavLink to="/" style={{ textDecoration: "none" }}>
             <img
-              src="https://i0.wp.com/thegamehaus.com/wp-content/uploads/2020/05/Volibear_Emote.png?resize=256%2C256&ssl=1"
+              src="https://motphimtv.info/motphimtv.png"
               alt="logo"
             />
-            <span className="text-logo">AP Movie</span>
+            {/* <span className="text-logo">AP Movie</span> */}
           </NavLink>
         </div>
         <div className="header__mobile">

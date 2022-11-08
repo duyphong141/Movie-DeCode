@@ -2,6 +2,7 @@ import React from "react";
 export default function InfoTicketBooked(props) {
   var moment = require("moment");
   let { thongTin } = props;
+  
   const renderInfoBooking = () => {
     return thongTin.thongTinDatVe?.map((ticket, index) => {
       return (

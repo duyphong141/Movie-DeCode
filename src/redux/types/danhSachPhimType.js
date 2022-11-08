@@ -1,1 +1,0 @@
-export const GET_DANHSACH_PHIM = "GET_DANHSACH_PHIM"

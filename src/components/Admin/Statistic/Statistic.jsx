@@ -8,7 +8,7 @@ export default function Statistic() {
     qLyPhimService
       .layHeThongRap()
       .then((result) => {
-        setHeThongRap(result.data);
+        setHeThongRap(result.data.content);
       })
       .catch((err) => {
         console.log(err.response.data);

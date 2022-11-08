@@ -42,7 +42,7 @@ export default function Movie() {
     qLyPhimService
       .layDanhSachPhim()
       .then((result) => {
-        setDanhSachPhim(result.data);
+        setDanhSachPhim(result.data.content);
       })
       .catch((err) => {
         console.log(err.response.data);
@@ -122,7 +122,7 @@ export default function Movie() {
                               qLyPhimService
                                 .layDanhSachPhim()
                                 .then((result) => {
-                                  setDanhSachPhim(result.data);
+                                  setDanhSachPhim(result.data.content);
                                 })
                                 .catch((err) => {
                                   console.log(err.response.data);

@@ -12,7 +12,7 @@ const DetailMovie = (props) => {
     () =>
       qLyPhimService.layThongTinPhim(maPhim).then((result) => {
         setTimeout(() => {
-          setPhim(result.data);
+          setPhim(result.data.content);
           $loading(false);
         }, 1500);
       }),

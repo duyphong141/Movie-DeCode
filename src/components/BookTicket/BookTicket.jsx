@@ -8,7 +8,7 @@ export default function BookTicket() {
     qLyPhimService
       .layDanhSachPhim()
       .then((result) => {
-        setDanhSachPhim(result.data);
+        setDanhSachPhim(result.data.content);
       })
       .catch((err) => {
         console.log(err.response.data);

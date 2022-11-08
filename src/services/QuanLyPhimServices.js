@@ -1,43 +1,73 @@
 import axios from "axios";
-import { domain, groupID } from "../config/setting";
+import { DOMAIN_MOVIE, groupID, TOKEN_CYBER } from "../config/setting";
 export class QuanLyPhimServices {
+  layDanhSachBanner = () => {
+    return axios({
+      url: `${DOMAIN_MOVIE}/quanLyPhim/LayDanhSachBanner`,
+      method: "GET",
+      headers: {
+        "TokenCybersoft": TOKEN_CYBER
+      }
+    });
+  };
+
   layDanhSachPhim = () => {
     return axios({
-      url: `${domain}/quanLyPhim/laydanhsachphim?manhom=${groupID}`,
+      url: `${DOMAIN_MOVIE}/quanLyPhim/laydanhsachphim?manhom=${groupID}`,
       method: "GET",
+      headers: {
+        "TokenCybersoft": TOKEN_CYBER
+      }
     });
   };
+
   layThongTinPhim = (maPhim) => {
     return axios({
-      url: `${domain}/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`,
+      url: `${DOMAIN_MOVIE}/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`,
       method: "GET",
+      headers: {
+        "TokenCybersoft": TOKEN_CYBER
+      }
     });
   };
+
   layHeThongRap = () => {
     return axios({
-      url: `${domain}/QuanLyRap/LayThongTinHeThongRap`,
+      url: `${DOMAIN_MOVIE}/QuanLyRap/LayThongTinHeThongRap`,
       method: "GET",
+      headers: {
+        "TokenCybersoft": TOKEN_CYBER
+      }
     });
   };
 
   layCumRapTheoHeThong = () => {
     return axios({
-      url: `${domain}/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${groupID}`,
+      url: `${DOMAIN_MOVIE}/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${groupID}`,
       method: "GET",
+      headers: {
+        "TokenCybersoft": TOKEN_CYBER
+      }
     });
   };
 
   layThongTinCumRapTheoHeThong = (maHeThongRap) => {
     return axios({
-      url: `${domain}/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maHeThongRap}`,
+      url: `${DOMAIN_MOVIE}/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maHeThongRap}`,
       method: "GET",
+      headers: {
+        "TokenCybersoft": TOKEN_CYBER
+      }
     });
   };
 
   layThongTinPhongVe = (maLichChieu) => {
     return axios({
-      url: `${domain}/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`,
+      url: `${DOMAIN_MOVIE}/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`,
       method: "GET",
+      headers: {
+        "TokenCybersoft": TOKEN_CYBER
+      }
     });
   };
   layTinTuc = () => {

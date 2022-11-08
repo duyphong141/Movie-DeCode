@@ -54,56 +54,21 @@ export default class AppMobile extends Component {
                       <div className="item">
                         <img
                           className="img-fluid"
-                          src="https://tix.vn/app/assets/img/icons/slide/slide4.jpg"
+                          src="https://demo1.cybersoft.edu.vn/static/media/banner-slider-1.c4d5fe9e.jpg"
                           alt="hinhanh"
                         />
                       </div>
                       <div className="item">
                         <img
                           className="img-fluid"
-                          src="https://tix.vn/app/assets/img/icons/slide/slide5.jpg"
+                          src="https://demo1.cybersoft.edu.vn/static/media/banner-slider-4.16bf933f.jpg"
                           alt="hinhanh"
                         />
                       </div>
                       <div className="item">
                         <img
                           className="img-fluid"
-                          src="https://tix.vn/app/assets/img/icons/slide/slide8.jpg"
-                          alt="hinhanh"
-                        />
-                      </div>
-                      <div className="item">
-                        <img
-                          className="img-fluid"
-                          src="https://tix.vn/app/assets/img/icons/slide/slide10.jpg"
-                          alt="hinhanh"
-                        />
-                      </div>
-                      <div className="item">
-                        <img
-                          className="img-fluid"
-                          src="https://tix.vn/app/assets/img/icons/slide/slide13.jpg"
-                          alt="hinhanh"
-                        />
-                      </div>
-                      <div className="item">
-                        <img
-                          className="img-fluid"
-                          src="https://tix.vn/app/assets/img/icons/slide/slide14.jpg"
-                          alt="hinhanh"
-                        />
-                      </div>
-                      <div className="item">
-                        <img
-                          className="img-fluid"
-                          src="https://tix.vn/app/assets/img/icons/slide/slide16.jpg"
-                          alt="hinhanh"
-                        />
-                      </div>
-                      <div className="item">
-                        <img
-                          className="img-fluid"
-                          src="https://tix.vn/app/assets/img/icons/slide/slide3.jpg"
+                          src="https://demo1.cybersoft.edu.vn/static/media/banner-slider-6.0b2b382d.jpg"
                           alt="hinhanh"
                         />
                       </div>

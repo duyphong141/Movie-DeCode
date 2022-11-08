@@ -17,8 +17,8 @@ export default function ModalTrailer({ trailer, maPhim, open, handleToggle }) {
   const style = {
     position: "absolute",
     bottom: "0",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
+    left: "0%",
+    transform: "translate(0%, -5%)",
     width: "100%",
     height: "100%",
     border: "2px solid #000",

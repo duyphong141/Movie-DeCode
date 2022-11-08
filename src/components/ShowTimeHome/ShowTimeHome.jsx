@@ -9,7 +9,7 @@ export default function ShowTimeHome() {
     qLyPhimService
       .layHeThongRap()
       .then((result) => {
-        setRap(result.data);
+        setRap(result.data.content);
       })
       .catch((err) => {
         console.log(err.response.data);
@@ -21,7 +21,7 @@ export default function ShowTimeHome() {
     qLyPhimService
       .layCumRapTheoHeThong()
       .then((result) => {
-        setCumRap(result.data);
+        setCumRap(result.data.content);
       })
       .catch((err) => {
         console.log(err.response.data);

@@ -13,6 +13,7 @@ const useStyles = makeStyles({
 export default function CardCinema(props) {
   const classes = useStyles();
   let { cumRap } = props;
+
   const renderDanhSachCumRap = () => {
     return cumRap.lstCumRap.map((item, index) => {
       return (
@@ -62,6 +63,7 @@ export default function CardCinema(props) {
       );
     });
   };
+  
   return (
     <Fragment>
       <div className="container-fluid">

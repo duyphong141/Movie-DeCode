@@ -51,17 +51,18 @@ export default function MovieCarousel({ list }) {
     // } else {
     return (
       <Swiper
+        loop={true}
         className="custom-swiper"
-        effect={"coverflow"}
+        // effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
-        coverflowEffect={{
-          rotate: 35,
-          stretch: 0,
-          depth: 0,
-          modifier: 1,
-          slideShadows: false,
-        }}
+        // coverflowEffect={{
+        //   rotate: 35,
+        //   stretch: 0,
+        //   depth: 0,
+        //   modifier: 1,
+        //   slideShadows: false,
+        // }}
         navigation={true}
         breakpoints={{
           375: {

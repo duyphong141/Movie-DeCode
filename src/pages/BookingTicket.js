@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import ChooseSlot from "../components/BookingSlot/ChooseSlot/ChooseSlot";
 import Checkout from "../components/BookingSlot/Checkout/Checkout";
 import { qLyPhimService } from "../services/QuanLyPhimServices";
+
 export default function BookingTicket(props) {
   let [thongTinPhongVe, setThongTinPhongVe] = useState({});
   let [danhSachGheDangDat, setDanhSachGheDangDat] = useState([]);
@@ -10,7 +11,7 @@ export default function BookingTicket(props) {
     qLyPhimService
       .layThongTinPhongVe(maLichChieu)
       .then((result) => {
-        setThongTinPhongVe(result.data);
+        setThongTinPhongVe(result.data.content);
       })
       .catch((err) => {
         console.log(err.response.data);

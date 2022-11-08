@@ -10,9 +10,9 @@ import CardCinema from "../CardCinema/CardCinema";
 import SwipeableViews from "react-swipeable-views";
 import SpinnerLoading from "../SpinnerLoading/SpinnerLoading";
 import { qLyPhimService } from "../../services/QuanLyPhimServices";
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
   return (
     <div
       role="tabpanel"
@@ -57,7 +57,7 @@ export default function CinemaSystem(props) {
     qLyPhimService
       .layHeThongRap()
       .then((result) => {
-        setHeThongRap(result.data);
+        setHeThongRap(result.data.content);
         setLoading(false);
       })
       .catch((err) => {
@@ -68,8 +68,8 @@ export default function CinemaSystem(props) {
   useEffect(() => {
     qLyPhimService
       .layCumRapTheoHeThong()
-      .then((res) => {
-        setCumRap(res.data);
+      .then((result) => {
+        setCumRap(result.data.content);
         setLoading(false);
       })
       .catch((err) => {
@@ -107,11 +107,11 @@ export default function CinemaSystem(props) {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
-  if (loading) {
-    return <SpinnerLoading />;
-  } else {
+  // if (loading) {
+  //   return <SpinnerLoading />; 
+  // } else {
     return (
-      <div className={classes.root} style={{ marginTop: "60px" }}>
+      <div className={classes.root} style={{ marginTop: "74px" }}>
         <AppBar
           position="static"
           color="default"
@@ -140,4 +140,4 @@ export default function CinemaSystem(props) {
       </div>
     );
   }
-}
+// }

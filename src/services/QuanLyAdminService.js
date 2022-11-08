@@ -1,10 +1,13 @@
 import axios from "axios";
-import { domain, token, groupID } from "../config/setting";
+import { domain, token, groupID, DOMAIN_MOVIE, TOKEN_CYBER } from "../config/setting";
 export class QuanLyAdmin {
   layDanhSachNguoiDung = () => {
     return axios({
-      url: `${domain}/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${groupID}`,
+      url: `${DOMAIN_MOVIE}/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${groupID}`,
       method: "GET",
+      headers: {
+        "TokenCybersoft": TOKEN_CYBER
+      }
     });
   };
   themNguoiDung = (thongTinNguoiDung) => {
@@ -17,25 +20,30 @@ export class QuanLyAdmin {
       },
     });
   };
+
   capNhatThongTinNguoiDung = (thongTinNguoiDung) => {
     return axios({
-      url: `${domain}/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
+      url: `${DOMAIN_MOVIE}/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
       method: "PUT",
       data: thongTinNguoiDung,
       headers: {
         Authorization: "Bearer " + localStorage.getItem(token),
+        "TokenCybersoft": TOKEN_CYBER
       },
     });
   };
+
   xoaNguoiDung = (taiKhoan) => {
     return axios({
-      url: `${domain}/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`,
+      url: `${DOMAIN_MOVIE}/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`,
       method: "DELETE",
       headers: {
         Authorization: "Bearer " + localStorage.getItem(token),
+        "TokenCybersoft": TOKEN_CYBER
       },
     });
   };
+
   themPhim = (form_data) => {
     return axios({
       url: `${domain}/QuanLyPhim/ThemPhimUploadHinh`,
@@ -65,40 +73,46 @@ export class QuanLyAdmin {
   // };
   uploadHinhAnhPhim = (hinhAnh) => {
     return axios({
-      url: `${domain}/QuanLyPhim/UploadHinhAnhPhim`,
+      url: `${DOMAIN_MOVIE}/QuanLyPhim/ThemPhimUploadHinh`,
       method: "POST",
       data: hinhAnh,
+      headers: {
+        "TokenCybersoft": TOKEN_CYBER
+      }
     });
   };
 
   suaPhim = (phim) => {
     return axios({
-      url: `${domain}/QuanLyPhim/CapNhatPhim`,
+      url: `${DOMAIN_MOVIE}/QuanLyPhim/CapNhatPhimUpload`,
       method: "POST",
       data: phim,
       headers: {
         Authorization: "Bearer " + localStorage.getItem(token),
+        "TokenCybersoft": TOKEN_CYBER
       },
     });
   };
 
   xoaPhim = (maPhim) => {
     return axios({
-      url: `${domain}/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`,
+      url: `${DOMAIN_MOVIE}/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`,
       method: "DELETE",
       headers: {
         Authorization: "Bearer " + localStorage.getItem(token),
+        "TokenCybersoft": TOKEN_CYBER
       },
     });
   };
 
   taoLichChieu = (thongTin) => {
     return axios({
-      url: `${domain}/QuanLyDatVe/TaoLichChieu`,
+      url: `${DOMAIN_MOVIE}/QuanLyDatVe/TaoLichChieu`,
       method: "POST",
       data: thongTin,
       headers: {
         Authorization: "Bearer " + localStorage.getItem(token),
+        "TokenCybersoft": TOKEN_CYBER
       },
     });
   };

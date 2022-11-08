@@ -21,6 +21,9 @@ import ClusterCinema from "./pages/ClusterCinema";
 import News from "./pages/News";
 import DetailNews from "./pages/DetailNews";
 import NewsManagement from "./pages/NewsManagement";
+
+
+
 class App extends Component {
   render() {
     return (

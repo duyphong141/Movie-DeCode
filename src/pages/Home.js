@@ -12,13 +12,16 @@ export default function Home() {
   let [danhSachPhim, setDanhSachPhim] = React.useState([]);
   const [loading, $loading] = React.useState(true);
 
+  //! banner
+  let [danhSachBanner, setDanhSachBanner] = React.useState([]);
+
   React.useEffect(() => {
     qLyPhimService
       .layDanhSachPhim()
       .then((result) => {
         if (result) {
           setTimeout(() => {
-            setDanhSachPhim(result.data);
+            setDanhSachPhim(result.data.content);
             $loading(false);
           }, 1500);
         }
@@ -26,24 +29,52 @@ export default function Home() {
       .catch((err) => {
         console.log(err.response.data);
       });
+    // banner
+    qLyPhimService
+      .layDanhSachBanner()
+      .then((result) => {
+        setDanhSachBanner(result.data.content);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
   }, []);
+
+
+
+
+
+
   return (
+    // <Fragment>
+    //   {loading ? (
+    //     <SpinnerLoading />
+    //   ) : (
+    //     <Fragment>
+    //       <Carousel />
+    //       <ListMovie danhSachPhim={danhSachPhim} />
+    //       <ScrollAnimation animateIn="fadeIn">
+    //         <ShowTimeHome />
+    //       </ScrollAnimation>
+    //       <ScrollAnimation animateIn="zoomIn">
+    //         <News />
+    //       </ScrollAnimation>
+    //       <AppMobile />
+    //     </Fragment>
+    //   )}
+    // </Fragment>
+
     <Fragment>
-      {loading ? (
-        <SpinnerLoading />
-      ) : (
-        <Fragment>
-          <Carousel />
-          <ListMovie danhSachPhim={danhSachPhim} />
-          <ScrollAnimation animateIn="fadeIn">
-            <ShowTimeHome />
-          </ScrollAnimation>
-          <ScrollAnimation animateIn="zoomIn">
-            <News />
-          </ScrollAnimation>
-          <AppMobile />
-        </Fragment>
-      )}
+      <Carousel danhSachBanner={danhSachBanner} />
+      <ListMovie danhSachPhim={danhSachPhim} />
+      <ScrollAnimation animateIn="fadeIn">
+        <ShowTimeHome />
+      </ScrollAnimation>
+      <ScrollAnimation animateIn="zoomIn">
+        <News />
+      </ScrollAnimation>
+      <AppMobile />
     </Fragment>
+
   );
 }

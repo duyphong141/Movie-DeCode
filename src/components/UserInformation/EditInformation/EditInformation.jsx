@@ -29,9 +29,9 @@ export default function EditInformation() {
   useEffect(() => {
     qlyNguoiDung
       .thongTinTaiKhoan(account)
-      .then((res) => {
+      .then((result) => {
         setState({
-          values: res.data,
+          values: result.data.content,
           errors: {
             hoTen: "",
             taiKhoan: "",

@@ -83,7 +83,7 @@ export default class Register extends Component {
       })
       .catch((err) => {
         swal({
-          title: err.response.data,
+          title: err.response.data.content,
           text: "Điền lại thông tin!",
           icon: "warning",
           button: "OK",
