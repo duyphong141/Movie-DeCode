@@ -99,10 +99,9 @@ export default class Register extends Component {
             <div className="img__logo">
               <NavLink className="img__link" to="/">
                 <img
-                  src="https://i0.wp.com/thegamehaus.com/wp-content/uploads/2020/05/Volibear_Emote.png?resize=256%2C256&ssl=1"
+                  src="https://motphimtv.info/motphimtv.png"
                   alt="logo"
                 />
-                <span className="text-logo">AP Movie</span>
               </NavLink>
             </div>
             <div className="formSocial">

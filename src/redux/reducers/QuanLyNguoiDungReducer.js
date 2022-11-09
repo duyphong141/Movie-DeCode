@@ -1,10 +1,11 @@
+import { token, userLogin } from "../../config/setting";
 import { DANG_NHAP } from "../types/QuanLyNguoiDungTypes";
 import { DANG_XUAT } from "../types/QuanLyNguoiDungTypes";
 import { BINH_LUAN } from "../types/QuanLyNguoiDungTypes";
 
 let taiKhoan = "";
-if (localStorage.getItem("userLogin")) {
-  taiKhoan = JSON.parse(localStorage.getItem("userLogin")).taiKhoan;
+if (localStorage.getItem(userLogin)) {
+  taiKhoan = JSON.parse(localStorage.getItem(userLogin)).taiKhoan;
 }
 const initialState = {
   taiKhoan: taiKhoan,
@@ -19,7 +20,8 @@ export default (state = initialState, action) => {
       return { ...state };
     }
     case DANG_XUAT: {
-      localStorage.removeItem("userLogin");
+      localStorage.removeItem(userLogin);
+      localStorage.removeItem(token);
       state.taiKhoan = "";
       window.location.reload();
       return { ...state };

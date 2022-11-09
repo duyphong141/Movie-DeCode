@@ -34,6 +34,7 @@ export default function Header(props) {
       setOpen(false);
     }
   }
+  
   const taiKhoan = useSelector(
     (state) => state.QuanLyNguoiDungReducer.taiKhoan
   );
@@ -43,6 +44,7 @@ export default function Header(props) {
   const LogOut = () => {
     dispatch(dangXuatAction());
   };
+
   const renderMenuControl = () => {
     if (
       JSON.parse(localStorage.getItem(userLogin)).maLoaiNguoiDung === "QuanTri"
@@ -137,7 +139,6 @@ export default function Header(props) {
               src="https://motphimtv.info/motphimtv.png"
               alt="logo"
             />
-            {/* <span className="text-logo">AP Movie</span> */}
           </NavLink>
         </div>
         <div className="header__mobile">

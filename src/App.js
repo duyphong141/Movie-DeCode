@@ -74,6 +74,7 @@ class App extends Component {
             path="/newsmanagement"
             Component={NewsManagement}
           />
+
         </Switch>
       </BrowserRouter>
     );

@@ -107,9 +107,9 @@ export default function CinemaSystem(props) {
   const handleChangeIndex = (index) => {
     setValue(index);
   };
-  // if (loading) {
-  //   return <SpinnerLoading />; 
-  // } else {
+  if (loading) {
+    return <SpinnerLoading />;
+  } else {
     return (
       <div className={classes.root} style={{ marginTop: "74px" }}>
         <AppBar
@@ -140,4 +140,4 @@ export default function CinemaSystem(props) {
       </div>
     );
   }
-// }
+}

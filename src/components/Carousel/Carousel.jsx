@@ -4,7 +4,7 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import BookTicket from "../BookTicket/BookTicket";
-import { qLyPhimService } from "../../services/QuanLyPhimServices";
+
 
 export default function Carousel(props) {
 console.log(props)

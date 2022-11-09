@@ -9,12 +9,6 @@ import reduxThunk from "redux-thunk";
 import rootReducer from "./redux/reducers/index";
 const store = createStore(rootReducer, applyMiddleware(reduxThunk));
 
-// ReactDOM.render(
-//   <Provider store={store}>
-//     <App />
-//   </Provider>,
-//   document.getElementById("root")
-// );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

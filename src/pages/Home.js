@@ -42,38 +42,23 @@ export default function Home() {
 
 
 
-
-
-
   return (
-    // <Fragment>
-    //   {loading ? (
-    //     <SpinnerLoading />
-    //   ) : (
-    //     <Fragment>
-    //       <Carousel />
-    //       <ListMovie danhSachPhim={danhSachPhim} />
-    //       <ScrollAnimation animateIn="fadeIn">
-    //         <ShowTimeHome />
-    //       </ScrollAnimation>
-    //       <ScrollAnimation animateIn="zoomIn">
-    //         <News />
-    //       </ScrollAnimation>
-    //       <AppMobile />
-    //     </Fragment>
-    //   )}
-    // </Fragment>
-
     <Fragment>
-      <Carousel danhSachBanner={danhSachBanner} />
-      <ListMovie danhSachPhim={danhSachPhim} />
-      <ScrollAnimation animateIn="fadeIn">
-        <ShowTimeHome />
-      </ScrollAnimation>
-      <ScrollAnimation animateIn="zoomIn">
-        <News />
-      </ScrollAnimation>
-      <AppMobile />
+      {loading ? (
+        <SpinnerLoading />
+      ) : (
+        <Fragment>
+          <Carousel danhSachBanner={danhSachBanner} />
+          <ListMovie danhSachPhim={danhSachPhim} />
+          <ScrollAnimation animateIn="fadeIn">
+            <ShowTimeHome />
+          </ScrollAnimation>
+          <ScrollAnimation animateIn="zoomIn">
+            <News />
+          </ScrollAnimation>
+          <AppMobile />
+        </Fragment>
+      )}
     </Fragment>
 
   );

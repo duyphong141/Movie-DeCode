@@ -1,3 +1,0 @@
-export const HE_THONG_RAP_CHIEU = "HE_THONG_RAP_CHIEU";
-
-export const GET_CHI_TIET_PHIM = "GET_CHI_TIET_PHIM";
