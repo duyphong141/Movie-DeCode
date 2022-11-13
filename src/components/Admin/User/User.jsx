@@ -4,6 +4,7 @@ import ModalUser from "../ModalUser/ModalUser";
 import EditModal from "../EditUserModal/EditUserModal";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import swal from "sweetalert";
+
 export default function User() {
   let [listNguoiDung, setListNguoiDung] = useState([]);
 
@@ -26,7 +27,7 @@ export default function User() {
           <td>{user.taiKhoan}</td>
           <td>{user.hoTen}</td>
           <td>{user.email}</td>
-          <td>{user.soDt}</td>
+          <td>{user.soDT}</td>
           <td>{user.maLoaiNguoiDung}</td>
           <td style={{ display: "flex", justifyContent: "space-between" }}>
             <div className="edit-action">
@@ -76,7 +77,7 @@ export default function User() {
             setListNguoiDung(result.data.content);
           })
           .catch((err) => {
-            console.log(err.response.data);
+            console.log(err.response.data.content);
           });
       })
       .catch((err) => {
@@ -103,6 +104,7 @@ export default function User() {
     });
     setDanhSachNguoiDung(results);
   }, [searchTerm, listNguoiDung]);
+
   return (
     <Fragment>
       <div className="title">

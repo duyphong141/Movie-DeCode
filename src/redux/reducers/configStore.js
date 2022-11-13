@@ -1,12 +1,13 @@
 import { combineReducers, createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { QuanLyNguoiDungReducer } from "./QuanLyNguoiDungReducer";
-import { QuanLyPhimReducer } from "./QuanLyPhimReducer";
-
+import QuanLyNguoiDungReducer from "./QuanLyNguoiDungReducer";
+import QuanLyPhimReducer from "./QuanLyPhimReducer";
 
 const rootReducer = combineReducers({
   QuanLyNguoiDungReducer,
-  QuanLyPhimReducer
+  QuanLyPhimReducer,
 });
 
 export const store = createStore(rootReducer, applyMiddleware(thunk)); 
+
+

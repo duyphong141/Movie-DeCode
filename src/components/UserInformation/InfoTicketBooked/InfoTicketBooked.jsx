@@ -24,6 +24,7 @@ export default function InfoTicketBooked(props) {
       );
     });
   };
+  
   return (
     <div className="card">
       <div className="card-header" id="headingOne">

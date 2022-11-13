@@ -12,6 +12,7 @@ export class QuanLyNguoiDung {
       }
     });
   };
+  
   dangKy = (thongTin) => {
     return axios({
       url: `${DOMAIN_MOVIE}/QuanLyNguoiDung/DangKy`,
@@ -34,13 +35,14 @@ export class QuanLyNguoiDung {
       }
     });
   };
+
   datVe = (thongTinDatVe) => {
     return axios({
-      url: `${DOMAIN_MOVIE}/quanlydatve/datve`,
+      url: `${DOMAIN_MOVIE}/QuanLyDatVe/DatVe`,
       method: "POST",
       data: thongTinDatVe,
       headers: {
-        Authorization: "Bearer " + localStorage.getItem(token),
+        "Authorization": "Bearer " + localStorage.getItem(token),
         "TokenCybersoft": TOKEN_CYBER
       },
     });
@@ -60,6 +62,7 @@ export class QuanLyNguoiDung {
       data: binhLuan,
     });
   };
+  
   thongTinTaiKhoan = (taiKhoan) => {
     return axios({
       url: `${DOMAIN_MOVIE}/QuanLyNguoiDung/ThongTinTaiKhoan`,

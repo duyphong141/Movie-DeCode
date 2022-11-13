@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import "./CreditModal.scss";
+
 export default class CreditModal extends Component {
   state = {
     cvc: "",

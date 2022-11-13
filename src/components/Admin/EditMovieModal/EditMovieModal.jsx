@@ -4,8 +4,11 @@ import { groupID } from "../../../config/setting";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import swal from "sweetalert";
 import { Fragment } from "react";
+import moment from "moment";
+
 export default function EditMovieModal(props) {
   let { phim } = props;
+
   let [state, setState] = useState({
     values: {
       hinhAnh: phim.hinhAnh,
@@ -43,10 +46,11 @@ export default function EditMovieModal(props) {
       ...state.errors,
       [name]: value === "" ? "không được bỏ trống!" : "",
     };
+    //! cái gốc nó comment hình ảnh 
+    if (name === "hinhAnh") {
+      newValues[name] = event.target.files[0];
+    }
 
-    // if (name === "hinhAnh") {
-    //   newValues[name] = event.target.files[0];
-    // }
     if (name === "ngayKhoiChieu") {
       newValues[name] = moment(value, "yyyy-MM-DD").format("DD/MM/yyyy");
     }
@@ -89,12 +93,12 @@ export default function EditMovieModal(props) {
       return;
     }
     // gọi api hoạc dispatch redux
-    // var form_data = new FormData();
-    // for (let key in state.values) {
-    //   form_data.append(key, state.values[key]);
-    // }
+    var form_data = new FormData();
+    for (let key in state.values) {
+      form_data.append(key, state.values[key]);
+    }
     qLyAdminService
-      .suaPhim(values)
+      .suaPhim(form_data)
       .then((res) => {
         swal({
           title: "Sửa phim thành công",
@@ -107,7 +111,7 @@ export default function EditMovieModal(props) {
       })
       .catch((err) => {
         swal({
-          title: err.response.data,
+          title: err.response.data.content,
           text: "Điền lại thông tin!",
           icon: "warning",
           button: "OK",
@@ -144,6 +148,7 @@ export default function EditMovieModal(props) {
               <form onSubmit={handleSubmit} className="user-form">
                 <div className="row">
                   <div className="col-md-6 col-sm-12">
+
                     <div className="textb">
                       <input
                         type="text"
@@ -163,6 +168,7 @@ export default function EditMovieModal(props) {
                       </div>
                       <span className="text-danger">{state.errors.maPhim}</span>
                     </div>
+
                     <div className="textb">
                       <input
                         type="text"
@@ -176,6 +182,7 @@ export default function EditMovieModal(props) {
                         {state.errors.tenPhim}
                       </span>
                     </div>
+
                     <div className="textb">
                       <input
                         type="text"
@@ -187,27 +194,21 @@ export default function EditMovieModal(props) {
                       <div className="placeholder">Bí danh</div>
                       <span className="text-danger">{state.errors.biDanh}</span>
                     </div>
+
                     <div className="textb">
-                      <input
-                        type="text"
-                        name="hinhAnh"
-                        onChange={handleChangeInput}
-                        value={state.values.hinhAnh}
-                        required
-                      />
-                      {/* <div>Thêm hình ảnh mới nếu có</div>
                       <input
                         type="file"
                         name="hinhAnh"
-                        onChange={this.handleChangeInput}
-                        ref={this.state.values.hinhAnh}
-                      /> */}
+                        onChange={handleChangeInput}
+                      // ref={state.values.hinhAnh}
+                      />
                       <div className="placeholder">Hình ảnh</div>
                       <span className="text-danger">
                         {state.errors.hinhAnh}
                       </span>
                     </div>
                   </div>
+
                   <div className="col-md-6 col-sm-12">
                     <div className="textb">
                       <input
@@ -222,6 +223,7 @@ export default function EditMovieModal(props) {
                         {state.errors.trailer}
                       </span>
                     </div>
+
                     <div className="textb">
                       <input
                         type="text"
@@ -233,13 +235,14 @@ export default function EditMovieModal(props) {
                       <div className="placeholder">Mô tả</div>
                       <span className="text-danger">{state.errors.moTa}</span>
                     </div>
+
                     <div className="textb">
                       <input
                         type="date"
                         name="ngayKhoiChieu"
                         onChange={handleChangeInput}
-                        // value={state.values.ngayKhoiChieu}
-                        required
+                        value={moment(state.values.ngayKhoiChieu).format('YYYY-MM-DD')}
+                      required
                       />
                       <div
                         className="placeholder"
@@ -251,6 +254,7 @@ export default function EditMovieModal(props) {
                         {state.errors.ngayKhoiChieu}
                       </span>
                     </div>
+
                     <div className="textb">
                       <input
                         type="text"

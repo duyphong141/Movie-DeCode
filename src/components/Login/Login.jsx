@@ -20,6 +20,7 @@ const Login = (props) => {
       matKhau: "",
     },
   });
+  
   const handleChangeInput = (event) => {
     var { value, name } = event.target;
     let newValues = { ...state.values, [name]: value };
@@ -43,11 +44,11 @@ const Login = (props) => {
           text: "Xin chào " + res.data.content.taiKhoan,
           icon: "success",
           button: "OK",
-        });
+        });   
         navigator.history.push("/home");
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log(err.response.data.content);
         swal({
           title: err.response.data.content,
           icon: "error",
@@ -55,6 +56,7 @@ const Login = (props) => {
         });
       });
   };
+
   return (
     <section className="backgroundBodyUser">
       <div className="container-fluid">

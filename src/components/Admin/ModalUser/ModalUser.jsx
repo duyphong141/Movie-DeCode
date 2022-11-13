@@ -3,6 +3,7 @@ import "./ModalUser.scss";
 import { groupID } from "../../../config/setting";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import swal from "sweetalert";
+
 export default class ModalUser extends Component {
   state = {
     values: {
@@ -23,6 +24,7 @@ export default class ModalUser extends Component {
       maLoaiNguoiDung: "",
     },
   };
+  
   handleChangeInput = (event) => {
     var { value, name } = event.target;
     //tạo ra object this.state.values mới
@@ -46,6 +48,7 @@ export default class ModalUser extends Component {
     //setState lại values và errors
     this.setState({ values: newValues, errors: newErrors });
   };
+
   handleSubmit = (event) => {
     event.preventDefault();
     let valid = true;
@@ -80,7 +83,7 @@ export default class ModalUser extends Component {
       })
       .catch((err) => {
         swal({
-          title: err.response.data,
+          title: err.response.data.content,
           text: "Điền lại thông tin!",
           icon: "warning",
           button: "OK",

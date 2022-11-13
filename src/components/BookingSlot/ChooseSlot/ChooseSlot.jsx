@@ -29,6 +29,7 @@ export default function ChooseSlot(props) {
       );
     }
   };
+
   const datGhe = (ghe) => {
     let index = danhSachGheDangDat.findIndex(
       (gheDangDat) => gheDangDat.stt === ghe.stt
@@ -40,17 +41,19 @@ export default function ChooseSlot(props) {
     }
     setDanhSachGheDangDat([...danhSachGheDangDat]);
   };
+
   const renderDanhSachGhe = () => {
     let { danhSachGhe } = thongTinPhongVe;
     return danhSachGhe?.map((ghe, index) => {
       return <Fragment key={index}>{renderGhe(ghe.daDat, ghe)}</Fragment>;
     });
   };
+
   const [counter, setCounter] = useState(60 * 5);
   useEffect(() => {
     counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
     if (counter === 0) {
-      swal("Bạn đã chọn vé quá lâu! Ahihi", {
+      swal("Bạn đã chọn vé quá lâu!", {
         icon: "error",
       });
       setTimeout(() => {
@@ -58,6 +61,7 @@ export default function ChooseSlot(props) {
       }, 3000);
     }
   }, [counter]);
+  
   return (
     <div className="checkOut__left col-md-9 col-sm-12 p-0">
       <div className="bookSlot">

@@ -3,7 +3,7 @@ import { DOMAIN_MOVIE, groupID, TOKEN_CYBER } from "../config/setting";
 export class QuanLyPhimServices {
   layDanhSachBanner = () => {
     return axios({
-      url: `${DOMAIN_MOVIE}/quanLyPhim/LayDanhSachBanner`,
+      url: `${DOMAIN_MOVIE}/QuanLyPhim/LayDanhSachBanner`,
       method: "GET",
       headers: {
         "TokenCybersoft": TOKEN_CYBER
@@ -13,7 +13,7 @@ export class QuanLyPhimServices {
 
   layDanhSachPhim = () => {
     return axios({
-      url: `${DOMAIN_MOVIE}/quanLyPhim/laydanhsachphim?manhom=${groupID}`,
+      url: `${DOMAIN_MOVIE}/QuanLyPhim/LayDanhSachPhim?maNhom=${groupID}`,
       method: "GET",
       headers: {
         "TokenCybersoft": TOKEN_CYBER
@@ -70,12 +70,14 @@ export class QuanLyPhimServices {
       }
     });
   };
+
   layTinTuc = () => {
     return axios({
       url: "https://5e9829e75eabe7001681bbfb.mockapi.io/news",
       method: "GET",
     });
   };
+  
   layChiTietTinTuc = (maTinTuc) => {
     return axios({
       url: `https://5e9829e75eabe7001681bbfb.mockapi.io/news/${maTinTuc}`,

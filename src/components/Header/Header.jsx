@@ -64,6 +64,7 @@ export default function Header(props) {
       return null;
     }
   };
+
   const renderLogin = () => {
     if (taiKhoan) {
       return (
@@ -130,6 +131,7 @@ export default function Header(props) {
       </NavLink>
     );
   };
+  
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-dark">

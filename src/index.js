@@ -4,10 +4,7 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import reduxThunk from "redux-thunk";
-import rootReducer from "./redux/reducers/index";
-const store = createStore(rootReducer, applyMiddleware(reduxThunk));
+import { store } from "./redux/reducers/configStore";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

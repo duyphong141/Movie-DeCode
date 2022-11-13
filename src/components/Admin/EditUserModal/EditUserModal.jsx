@@ -48,6 +48,7 @@ export default class EditUserModal extends Component {
       },
     });
   }
+
   handleChangeInput = (event) => {
     var { value, name } = event.target;
 
@@ -72,6 +73,7 @@ export default class EditUserModal extends Component {
     //setState lại values và errors
     this.setState({ values: newValues, errors: newErrors });
   };
+  
   handleSubmit = (event) => {
     event.preventDefault();
     let valid = true;
@@ -113,6 +115,7 @@ export default class EditUserModal extends Component {
         });
       });
   };
+  
   renderModal = () => {
     let { user } = this.props;
     return (
@@ -231,6 +234,7 @@ export default class EditUserModal extends Component {
       </div>
     );
   };
+
   render() {
     return <Fragment>{this.renderModal()}</Fragment>;
   }

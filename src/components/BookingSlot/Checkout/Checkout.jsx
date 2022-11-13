@@ -40,10 +40,11 @@ export default function Checkout(props) {
       danhSachVe: danhSachGheDangDat,
       taiKhoanNguoiDung: JSON.parse(localStorage.getItem(userLogin)).taiKhoan,
     };
+
     qlyNguoiDung
       .datVe(thongTinDatVe)
       .then((result) => {
-        console.log(result.data.content);
+        console.log(result.data);
         swal({
           title: "Bạn chắc chứ?",
           icon: "warning",
@@ -127,18 +128,17 @@ export default function Checkout(props) {
           <span className="noti__link">Email</span> đã nhập.{" "}
         </span>
       </div>
+
       <div
         id="btnBook"
         className="btnBook"
         data-toggle="modal"
         data-target="#CreditModal"
-        // onClick={() => {
-        //   datVe();
-        // }}
       >
         Thanh toán
       </div>
       <CreditModal datVe={datVe} />
+
     </div>
   );
 }

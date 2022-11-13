@@ -14,6 +14,7 @@ export default function Statistic() {
         console.log(err.response.data);
       });
   }, []);
+
   const renderRap = () => {
     return lstHeThongRap.map((rap, index) => {
       return (
@@ -30,6 +31,7 @@ export default function Statistic() {
       );
     });
   };
+  
   return (
     <dl>
       <dt>Rạp phim được đặt vé nhiều nhất 2020</dt>

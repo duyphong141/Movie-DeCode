@@ -133,18 +133,13 @@ const AdminLayout = (props) => {
                 className="logo"
                 style={{ textDecoration: "none" }}
               >
-                <img
-                  src="https://i0.wp.com/thegamehaus.com/wp-content/uploads/2020/05/Volibear_Emote.png?resize=256%2C256&ssl=1"
-                  alt="logo"
-                  style={{ width: 45, height: 45 }}
-                />
                 <span
                   style={{
                     fontFamily: '"Metal Mania", cursive',
                     color: "#60c5ef",
                   }}
                 >
-                  AP Movie Admin
+                  MotPhim TV Admin
                 </span>
               </NavLink>
             </Typography>

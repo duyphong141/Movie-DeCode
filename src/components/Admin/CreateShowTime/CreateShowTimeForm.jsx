@@ -2,8 +2,8 @@ import React, { useState, useEffect, Fragment } from "react";
 import "./CreateShowTimeForm.scss";
 import { qLyPhimService } from "../../../services/QuanLyPhimServices";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
-import TableShowTimeList from "../TableShowTimeList/TableShowTimeList";
 import swal from "sweetalert";
+
 export default function CreateShowTimeForm(props) {
   let [danhSachPhim, setDanhSachPhim] = useState([]);
   useEffect(() => {
@@ -28,10 +28,12 @@ export default function CreateShowTimeForm(props) {
         console.log(err.response.data);
       });
   }, []);
+
   var moment = require("moment");
-  let [maPhim, setMaPhim] = useState();
+  let [maPhim, setMaPhim] = useState('');
   const layMaPhim = (event) => {
-    let maPhim = parseInt(event.target.value);
+    // let maPhim = parseInt(event.target.value);
+    let maPhim = event.target.value;
     setMaPhim(maPhim);
   };
 
@@ -94,6 +96,7 @@ export default function CreateShowTimeForm(props) {
       }
     });
   };
+
   const renderPhim = () => {
     return danhSachPhim?.map((phim, index) => {
       return (
@@ -142,10 +145,11 @@ export default function CreateShowTimeForm(props) {
     let thongTinLichChieu = {
       maPhim: maPhim,
       ngayChieuGioChieu: ngayChieuGioChieu,
-      maRap: maRap,
+      // maRap: maRap,
+      maRap: maCumRap,
       giaVe: giaVe,
     };
-
+    console.log(thongTinLichChieu)
     qLyAdminService
       .taoLichChieu(thongTinLichChieu)
       .then((res) => {
@@ -159,6 +163,7 @@ export default function CreateShowTimeForm(props) {
         }, 2000);
       })
       .catch((err) => {
+        console.log(err.response.data)
         swal({
           title: err.response.data.content,
           // text: "Điền lại thông tin!",
@@ -167,6 +172,7 @@ export default function CreateShowTimeForm(props) {
         });
       });
   };
+
   return (
     <Fragment>
       <div className="container-fluid showtime-content">
@@ -261,7 +267,6 @@ export default function CreateShowTimeForm(props) {
           </div>
         </div>
       </div>
-      <TableShowTimeList maPhim={maPhim} />
     </Fragment>
   );
 }

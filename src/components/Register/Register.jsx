@@ -4,6 +4,7 @@ import "../Register/Register.scss";
 import { qlyNguoiDung } from "../../services/QuanLyNguoiDungServices";
 import { groupID } from "../../config/setting";
 import swal from "sweetalert";
+
 export default class Register extends Component {
   state = {
     values: {
@@ -23,6 +24,7 @@ export default class Register extends Component {
       soDT: "",
     },
   };
+
   handleChangeInput = (event) => {
     var { value, name } = event.target;
     //tạo ra object this.state.values mới

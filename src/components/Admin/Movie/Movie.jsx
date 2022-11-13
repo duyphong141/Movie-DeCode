@@ -14,7 +14,6 @@ import EditMovieModal from "../EditMovieModal/EditMovieModal";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import { qLyPhimService } from "../../../services/QuanLyPhimServices";
 import swal from "sweetalert";
-import UploadImageMovieModal from "../UploadImageMovieModal/UploadImageMovieModal";
 
 var moment = require("moment");
 const useStyles = makeStyles({
@@ -37,17 +36,18 @@ const StyledTableCell = withStyles((theme) => ({
 }))(TableCell);
 
 export default function Movie() {
-  let [danhSachPhim, setDanhSachPhim] = useState([]);
+  let [listPhim, setListPhim] = useState([]);
   useEffect(() => {
     qLyPhimService
       .layDanhSachPhim()
       .then((result) => {
-        setDanhSachPhim(result.data.content);
+        setListPhim(result.data.content);
       })
       .catch((err) => {
         console.log(err.response.data);
       });
   }, []);
+
   const renderDanhSachPhim = () => {
     return danhSachPhim
       .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -74,6 +74,7 @@ export default function Movie() {
             <TableCell>{phim.danhGia}</TableCell>
             <TableCell>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
+                {/* edit  */}
                 <div className="edit-action mr-2">
                   <i
                     style={{
@@ -86,18 +87,8 @@ export default function Movie() {
                   ></i>
                 </div>
                 <EditMovieModal phim={phim} />
-                <div className="upload-action mr-2">
-                  <i
-                    style={{
-                      cursor: "pointer",
-                      color: "#55c934",
-                    }}
-                    className="fa fa-file-image"
-                    data-toggle="modal"
-                    data-target={`#du${phim.maPhim}`}
-                  ></i>
-                </div>
-                <UploadImageMovieModal phim={phim} />
+
+                {/* delete  */}
                 <div className="delete-action">
                   <i
                     style={{ cursor: "pointer", color: "#fb4226" }}
@@ -125,7 +116,7 @@ export default function Movie() {
                                   setDanhSachPhim(result.data.content);
                                 })
                                 .catch((err) => {
-                                  console.log(err.response.data);
+                                  console.log(err.response.data.content);
                                 });
                             })
                             .catch((err) => {
@@ -157,8 +148,51 @@ export default function Movie() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  //! làm thử tìm kiếm phim
+  const [searchTerm, setSearchTerm] = useState("");
+  const [danhSachPhim, setDanhSachPhim] = useState([]);
+  const handleChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  useEffect(() => {
+    const results = listPhim.filter((phim) => {
+      return phim.tenPhim
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
+    });
+    setDanhSachPhim(results);
+  }, [searchTerm, listPhim]);
+
   return (
     <Paper className={classes.root}>
+        <div className="title">
+        <h2>Quản lý phim</h2>
+        <button className="btnAdd" data-toggle="modal" data-target="#UserModal">
+          <i className="fa fa-plus"></i>
+        </button>
+        <div className="search">
+          <div id="wrap">
+            <form autoComplete="on">
+              <input
+                id="search"
+                name="search"
+                type="text"
+                value={searchTerm}
+                onChange={handleChange}
+                placeholder="Nhập tên phim cần tìm"
+              />
+              <input
+                id="search_submit"
+                defaultValue="Rechercher"
+                type="submit"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+
+
       <button
         className="btnAdd"
         data-toggle="modal"

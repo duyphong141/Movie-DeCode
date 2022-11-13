@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./AddMovieModal.scss";
 import { qLyAdminService } from "../../../services/QuanLyAdminService";
 import swal from "sweetalert";
+
 export default class AddMovieModal extends Component {
   state = {
     values: {
@@ -41,6 +42,7 @@ export default class AddMovieModal extends Component {
 
     if (name === "hinhAnh") {
       newValues[name] = event.target.files[0];
+      console.log(event.target.files[0])
     }
     if (name === "ngayKhoiChieu") {
       var moment = require("moment");
@@ -97,7 +99,7 @@ export default class AddMovieModal extends Component {
         })
         .catch((err) => {
           swal({
-            title: err.response.data,
+            title: err.response.data.content,
             text: "Điền lại thông tin!",
             icon: "warning",
             button: "OK",
