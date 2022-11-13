@@ -22,6 +22,7 @@ export default function Information() {
         setThongTin(result.data.content);
       });
   }, []);
+  
   const renderAdmin = () => {
     if (info.maLoaiNguoiDung === "QuanTri") {
       return (

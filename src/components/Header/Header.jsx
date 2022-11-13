@@ -131,7 +131,17 @@ export default function Header(props) {
       </NavLink>
     );
   };
-  
+
+  const renderRegister = () => {
+    if (!localStorage.getItem(userLogin)) {
+      return (
+        <NavLink className="login__link" to="/register">
+          <span className="login__text">Đăng ký</span>
+        </NavLink>
+      );
+    }
+  };
+
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-dark">
@@ -192,7 +202,7 @@ export default function Header(props) {
               </NavLink>
             </li>
           </ul>
-          <div className="header__login">{renderLogin()}</div>
+          <div className="header__login">{renderLogin()}{renderRegister()}</div>
         </div>
       </nav>
     </header>
